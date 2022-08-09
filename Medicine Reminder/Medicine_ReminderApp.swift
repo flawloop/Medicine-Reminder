@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct Medicine_ReminderApp: App {
+    
+    @StateObject var medicineViewModel: MedicineViewModel = MedicineViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .environmentObject(medicineViewModel)
         }
     }
 }
